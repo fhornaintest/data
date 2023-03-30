@@ -1,0 +1,99 @@
+2023-03-22 11:45:46,270 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.qua.cor.CamelBootstrapRecorder] (Quarkus Main Thread) Bootstrap runtime: org.apache.camel.quarkus.main.CamelMainRuntime
+2023-03-22 11:45:46,274 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.mai.MainSupport] (Quarkus Main Thread) Apache Camel (Main) 3.20.1 is starting
+2023-03-22 11:45:46,336 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.mai.BaseMainSupport] (Quarkus Main Thread) Binding bean: RecordProcessor (type: org.acme.jdbc.RecordProcessor) to the registry
+2023-03-22 11:45:46,508 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread) Apache Camel 3.20.1 (camel-1) is starting
+2023-03-22 11:45:46,518 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread) Routes startup (started:4)
+2023-03-22 11:45:46,518 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Started route1 (timer://insertCamel1)
+2023-03-22 11:45:46,519 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Started route2 (timer://insertCamel2)
+2023-03-22 11:45:46,519 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Started route3 (direct://PathA)
+2023-03-22 11:45:46,520 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Started route4 (direct://PathB)
+2023-03-22 11:45:46,520 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread) Apache Camel 3.20.1 (camel-1) started in 126ms (build:0ms init:115ms start:11ms)
+2023-03-22 11:45:47,528 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [route2] (Camel (camel-1) thread #2 - timer://insertCamel2) ## COUNT THE NUMBER OF RECORDS PRESENT IN THE SENSOR TABLE ##
+2023-03-22 11:45:47,528 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [route1] (Camel (camel-1) thread #1 - timer://insertCamel1) INITIALIZATION RECORD TABLE
+2023-03-22 11:45:47,535 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [route2] (Camel (camel-1) thread #2 - timer://insertCamel2) SELECT RECORD NUMBER FROM SENSOR TABLE
+2023-03-22 11:45:51,533 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread) Apache Camel 3.20.1 (camel-1) is shutting down
+2023-03-22 11:45:51,546 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread) Routes stopped (stopped:4)
+2023-03-22 11:45:51,547 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Stopped route1 (timer://insertCamel1)
+2023-03-22 11:45:51,548 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Stopped route2 (timer://insertCamel2)
+2023-03-22 11:45:51,549 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Stopped route3 (direct://PathA)
+2023-03-22 11:45:51,549 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread)     Stopped route4 (direct://PathB)
+2023-03-22 11:45:51,551 linux-frederic code-with-quarkus-dev.jar[132099] WARN  [org.apa.cam.imp.eng.DefaultInflightRepository] (Quarkus Main Thread) Shutting down while there are still 2 inflight exchanges.
+2023-03-22 11:45:51,553 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [org.apa.cam.imp.eng.AbstractCamelContext] (Quarkus Main Thread) Apache Camel 3.20.1 (camel-1) shutdown in 20ms (uptime:5s)
+2023-03-22 11:45:51,564 linux-frederic code-with-quarkus-dev.jar[132099] WARN  [org.apa.cam.com.tim.TimerConsumer] (Camel (camel-1) thread #1 - timer://insertCamel1) Error processing exchange. Exchange[]. Caused by: [java.sql.SQLException - Can't create new connection as the pool is shutting down]: java.sql.SQLException: Can't create new connection as the pool is shutting down
+	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:317)
+	at io.agroal.pool.ConnectionPool.getConnection(ConnectionPool.java:248)
+	at io.agroal.pool.DataSource.getConnection(DataSource.java:86)
+	at org.apache.camel.component.jdbc.DefaultConnectionStrategy.getConnection(DefaultConnectionStrategy.java:28)
+	at org.apache.camel.component.jdbc.JdbcProducer.processingSqlBySettingAutoCommit(JdbcProducer.java:84)
+	at org.apache.camel.component.jdbc.JdbcProducer.process(JdbcProducer.java:71)
+	at org.apache.camel.support.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:66)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:172)
+	at org.apache.camel.processor.errorhandler.RedeliveryErrorHandler$SimpleTask.run(RedeliveryErrorHandler.java:477)
+	at org.apache.camel.impl.engine.DefaultReactiveExecutor$Worker.schedule(DefaultReactiveExecutor.java:181)
+	at org.apache.camel.impl.engine.DefaultReactiveExecutor.scheduleMain(DefaultReactiveExecutor.java:59)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:165)
+	at org.apache.camel.impl.engine.CamelInternalProcessor.process(CamelInternalProcessor.java:392)
+	at org.apache.camel.component.timer.TimerConsumer.sendTimerExchange(TimerConsumer.java:210)
+	at org.apache.camel.component.timer.TimerConsumer$1.run(TimerConsumer.java:76)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+Caused by: java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:121)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:296)
+	... 16 more
+
+2023-03-22 11:45:51,564 linux-frederic code-with-quarkus-dev.jar[132099] WARN  [org.apa.cam.com.tim.TimerConsumer] (Camel (camel-1) thread #2 - timer://insertCamel2) Error processing exchange. Exchange[]. Caused by: [java.sql.SQLException - Can't create new connection as the pool is shutting down]: java.sql.SQLException: Can't create new connection as the pool is shutting down
+	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:317)
+	at io.agroal.pool.ConnectionPool.getConnection(ConnectionPool.java:248)
+	at io.agroal.pool.DataSource.getConnection(DataSource.java:86)
+	at org.apache.camel.component.jdbc.DefaultConnectionStrategy.getConnection(DefaultConnectionStrategy.java:28)
+	at org.apache.camel.component.jdbc.JdbcProducer.processingSqlBySettingAutoCommit(JdbcProducer.java:84)
+	at org.apache.camel.component.jdbc.JdbcProducer.process(JdbcProducer.java:71)
+	at org.apache.camel.support.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:66)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:172)
+	at org.apache.camel.processor.errorhandler.RedeliveryErrorHandler$SimpleTask.run(RedeliveryErrorHandler.java:477)
+	at org.apache.camel.impl.engine.DefaultReactiveExecutor$Worker.schedule(DefaultReactiveExecutor.java:181)
+	at org.apache.camel.impl.engine.DefaultReactiveExecutor.scheduleMain(DefaultReactiveExecutor.java:59)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:165)
+	at org.apache.camel.impl.engine.CamelInternalProcessor.process(CamelInternalProcessor.java:392)
+	at org.apache.camel.component.timer.TimerConsumer.sendTimerExchange(TimerConsumer.java:210)
+	at org.apache.camel.component.timer.TimerConsumer$1.run(TimerConsumer.java:76)
+	at java.base/java.util.TimerThread.mainLoop(Timer.java:556)
+	at java.base/java.util.TimerThread.run(Timer.java:506)
+Caused by: java.util.concurrent.CancellationException
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:121)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:296)
+	... 16 more
+
+2023-03-22 11:45:51,569 linux-frederic code-with-quarkus-dev.jar[132099] INFO  [io.qua.dep.dev.IsolatedDevModeMain] (main) Attempting to start live reload endpoint to recover from previous Quarkus startup failure
+2023-03-22 11:45:51,567 linux-frederic code-with-quarkus-dev.jar[132099] ERROR [io.qua.run.Application] (Quarkus Main Thread) Failed to start application (with profile [dev]): java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at io.agroal.pool.ConnectionPool.handlerFromSharedCache(ConnectionPool.java:296)
+	at io.agroal.pool.ConnectionPool.getConnection(ConnectionPool.java:248)
+	at io.agroal.pool.DataSource.getConnection(DataSource.java:86)
+	at org.acme.jdbc.JdbcResource.startup(JdbcResource.java:39)
+	at org.acme.jdbc.JdbcResource_Observer_startup_67047eb1307e8f7b8a9addc8b6cce66e137fb333.notify(Unknown Source)
+	at io.quarkus.arc.impl.EventImpl$Notifier.notifyObservers(EventImpl.java:328)
+	at io.quarkus.arc.impl.EventImpl$Notifier.notify(EventImpl.java:310)
+	at io.quarkus.arc.impl.EventImpl.fire(EventImpl.java:78)
+	at io.quarkus.arc.runtime.ArcRecorder.fireLifecycleEvent(ArcRecorder.java:131)
+	at io.quarkus.arc.runtime.ArcRecorder.handleLifecycleEvents(ArcRecorder.java:100)
+	at io.quarkus.deployment.steps.LifecycleEventsBuildStep$startupEvent1144526294.deploy_0(Unknown Source)
+	at io.quarkus.deployment.steps.LifecycleEventsBuildStep$startupEvent1144526294.deploy(Unknown Source)
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:101)
+	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:108)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:71)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:44)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:124)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:104)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+2023-03-22 11:46:16,603 linux-frederic code-with-quarkus-dev.jar[132099] WARN  [io.agr.pool] (agroal-11) Datasource 'camel-ds': Socket fail to connect to host:address=(host=192.168.1.21)(port=3306)(type=primary). connect timed out
